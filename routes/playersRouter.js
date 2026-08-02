@@ -12,6 +12,7 @@ playersRouter.route('/')
         res.end('Will send all the players to you');
     })
     .post((req, res) => {
+        res.statusCode = 403;
         res.end('POST operation not supported on /players');
     })
     .put((req, res) => {
@@ -19,7 +20,30 @@ playersRouter.route('/')
         res.end('PUT operation not supported on /players');
     })
     .delete((req, res) => {
+        res.statusCode = 403;
         res.end('DELETE operation not supported on /players');
+    });
+
+playersRouter.route('/:playerId')
+    .all((req, res, next) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain');
+        console.log(`Request Method: ${req.method}, Request URL: ${req.url}`);
+        next();
+    })
+    .get((req, res) => {
+        res.end(`Will send details of the player: ${req.params.playerId}`);
+    })
+    .post((req, res) => {
+        res.statusCode = 403;
+        res.end(`POST operation not supported on /players/${req.params.playerId}`);
+    })
+    .put((req, res) => {
+        res.end(`Updating the player: ${req.params.playerId}`);
+    })
+    .delete((req, res) => {
+        res.statusCode = 403;
+        res.end(`DELETE operation not supported on /players/${req.params.playerId}`);
     });
 
 module.exports = playersRouter;

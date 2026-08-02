@@ -11,15 +11,17 @@ This project provides a simple REST API to get data about boxers, circuits, and 
 
 ### Boxers
 * `GET /animations` - Get a list of all boxer animation data.
-* `GET /animations/:boxer` - Get animation details for one specific boxer by their name or ID.
-* `PUT /animations/:boxer` - Put animation details update for one specific boxer by their name or ID.
-* `POST /animations/:boxer` - Post animation details for one specific boxer by the passed name.
+* `POST /animations` - Post animation details for one specific boxer.
+* `GET /animations/:boxerId` - Get animation details for one specific boxer using their unique player ID.
+* `PUT /animations/:boxerId` - Put animation details update for one specific boxer using their unique player ID.
+* `DELETE /animations/:boxerId` - Delete animation details for one specific boxer using their unique player ID.
 
 ### Circuits
 * `GET /circuits` - Get a list of all available circuits.
 * `GET /circuits/:circuit` - Get specific details for one circuit by its name or ID.
-* `PUT /circuits/:circuit` - Put circuit details update for one specific circuit by their name or ID.
 * `POST /circuits/:circuit` - Post circuit details for one specific circuit by the passed name.
+* `PUT /circuits/:circuit` - Put circuit details update for one specific circuit by their name or ID.
+* `DELETE /circuits/:circuit` - Delete circuit details for one specific circuit using their name or ID.
 
 ### Players
 * `GET /players` - Get a list of all registered players.
